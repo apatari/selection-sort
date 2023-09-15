@@ -1,10 +1,11 @@
 function selectionSort(arr) {
   // type your code here
   let res = []
-  while (arr.length > 0) {
-    const val = Math.min(...arr)
+  let tempArr = arr.slice()
+  while (tempArr.length > 0) {
+    const val = Math.min(...tempArr)
     res.push(val)
-    arr.splice(arr.indexOf(val),1)
+    tempArr.splice(tempArr.indexOf(val),1)
 
   }
   return res
@@ -24,12 +25,14 @@ if (require.main === module) {
     longInput.push(Math.random());
   }
   
-  console.time("timer")
+  
+  console.time("Total time")
   for (let i = 0; i < 1000; i++){
-    console.log(selectionSort(longInput))
+    selectionSort(longInput)
     
   }
-  console.timeEnd("timer")
+  
+  console.timeEnd("Total time")
 
 
 }
